@@ -7,8 +7,8 @@
       "price": { "regularPrice": 1200 },
       "displayAssets": [
         {
-          "full_background": "/images/item-1.svg",
-          "background": "/images/item-1.svg"
+          "full_background": "images/item-1.svg",
+          "background": "images/item-1.svg"
         }
       ]
     },
@@ -19,8 +19,8 @@
       "price": { "regularPrice": 800 },
       "displayAssets": [
         {
-          "full_background": "/images/item-2.svg",
-          "background": "/images/item-2.svg"
+          "full_background": "images/item-2.svg",
+          "background": "images/item-2.svg"
         }
       ]
     },
