@@ -1,38 +1,118 @@
-.App {
-  text-align: center;
+.app {
+  min-height: 100vh
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  padding: 20px;
+  min-height: calc(100vh - 64px - 95px);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card {
   display: flex;
   flex-direction: column;
+}
+.card-content {
+  flex-grow: 1
+}
+.card-action span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cart {
+  position: fixed;
+  right: 10rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.cart span {
+  font-size: 21px
+}
+
+/* фон */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* popup */
+.popup {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 50%;
+
+  transform: translateY(60px) scale(0.9);
+  opacity: 0;
+}
+
+/* запуск анимации */
+.overlay.active .popup {
+  animation: popupShow 0.35s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+.popup button.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.collection .collection-item {
+    padding: 10px 10px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 40px;
+}
+.collection .collection-item div {
+  display: flex;
+  align-items: center;
+}
+
+.collection .collection-item i {
+  cursor: pointer;
+}
+
+
+/* keyframes */
+@keyframes popupShow {
+  0% {
+    transform: translateY(80px) scale(0.8);
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  60% {
+    transform: translateY(-10px) scale(1.03);
+    opacity: 0.8;
   }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+footer .row {
+  margin-bottom: 0;
 }
